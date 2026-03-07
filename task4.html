@@ -7,10 +7,31 @@
 </head>
 <body>
     <script>
-        let a = 1
-        let b = a++ + a++
-        console.log(a, b)
-        // output 3 3
+        // SECTION 4 – For Loop
+// 1. Print 1–10
+for (let i = 1; i <= 10; i++) {
+    console.log(i);
+}
+// 2. Print 10–1
+for (let i = 10; i >= 1; i--) {
+    console.log(i);
+}
+// 3. Even Numbers
+for (let i = 1; i <= 20; i++) {
+    if (i % 2 === 0) {
+        console.log(i);
+    }
+}
+// 4. Odd Numbers
+for (let i = 1; i <= 20; i++) {
+    if (i % 2 !== 0) {
+        console.log(i);
+    }
+}
+// 5. Table of 5
+for (let i = 1; i <= 10; i++) {
+    console.log("5 x " + i + " = " + (5*i));
+}
     </script>
 </body>
 </html>

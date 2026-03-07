@@ -7,10 +7,45 @@
 </head>
 <body>
     <script>
-        let a = 10
-        a += a++
-        console.log(a)
-        // output 20
+        // SECTION 7 – For Of
+// 1. Print characters
+let str = "javascript";
+
+for (let char of str) {
+    console.log(char);
+}
+// 2. Print fruits
+let fruits = ["apple","banana","orange"];
+
+for (let fruit of fruits) {
+    console.log(fruit);
+}
+// 3. Count characters
+let str1 = "hello";
+let count = 0;
+
+for (let char of str1) {
+    count++;
+}
+
+console.log(count);
+// 4. Print vowels
+let str2 = "javascript";
+
+for (let char of str2) {
+    if ("aeiou".includes(char)) {
+        console.log(char);
+    }
+}
+// 5. Sum of array
+let arr = [10,20,30];
+let sum = 0;
+
+for (let num of arr) {
+    sum += num;
+}
+
+console.log(sum);
     </script>
 </body>
 </html>

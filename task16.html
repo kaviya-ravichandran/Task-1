@@ -7,11 +7,38 @@
 </head>
 <body>
     <script>
-        let a = 5
-        a += 3
-        a *= 2
-        console.log(a)
-        // output 16
+       // SECTION 8 – For In (Object)
+// 1. Print values
+let student = {
+    name: "John",
+    age: 21,
+    department: "Computer Science"
+};
+
+for (let key in student) {
+    console.log(student[key]);
+}
+// 2. Print keys
+for (let key in student) {
+    console.log(key);
+}
+// 3. Print key and value
+for (let key in student) {
+    console.log(key + ": " + student[key]);
+}
+// SECTION 9 – Functions
+// 1. Addition Function
+function add(a, b) {
+    return a + b;
+}
+
+console.log(add(5,3));
+// 2. Square Function
+function square(num) {
+    return num * num;
+}
+
+console.log(square(4));
     </script>
 </body>
 </html>

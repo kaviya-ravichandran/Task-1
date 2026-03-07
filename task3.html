@@ -7,11 +7,89 @@
 </head>
 <body>
     <script>
-        let a = 10
-        let b = a++
-        console.log(a, b)
-        // output 11 10
+        // SECTION 3 – Switch Statement
+// 1. Day Name
+let day = 1;
+
+switch(day) {
+    case 1: console.log("Monday"); break;
+    case 2: console.log("Tuesday"); break;
+    case 3: console.log("Wednesday"); break;
+    case 4: console.log("Thursday"); break;
+    case 5: console.log("Friday"); break;
+    case 6: console.log("Saturday"); break;
+    case 7: console.log("Sunday"); break;
+    default: console.log("Invalid day");
+}
+// 2. Traffic Light
+let trafficLight = "Red";
+
+switch(trafficLight) {
+    case "Red":
+        console.log("Stop");
+        break;
+    case "Yellow":
+        console.log("Ready");
+        break;
+    case "Green":
+        console.log("Go");
+        break;
+}
+// 3. Month Season
+let month = 12;
+
+switch(month) {
+    case 12:
+    case 1:
+    case 2:
+        console.log("Winter");
+        break;
+
+    case 3:
+    case 4:
+    case 5:
+        console.log("Summer");
+        break;
+
+    case 6:
+    case 7:
+    case 8:
+        console.log("Monsoon");
+        break;
+
+    default:
+        console.log("Other season");
+}
+// 4. Role Message
+let role = "Admin";
+
+switch(role) {
+    case "Admin":
+        console.log("Welcome Admin");
+        break;
+    case "User":
+        console.log("Welcome User");
+        break;
+    case "Guest":
+        console.log("Welcome Guest");
+        break;
+}
+// 5. Grade Message
+let grade = "A";
+
+switch(grade) {
+    case "A":
+        console.log("Excellent");
+        break;
+    case "B":
+        console.log("Good");
+        break;
+    case "C":
+        console.log("Average");
+        break;
+    default:
+        console.log("Needs improvement");
+}
     </script>
-    
 </body>
 </html>
