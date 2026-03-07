@@ -6,17 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-<script>
+    <script>
+        let a = 1
+        let b = ++a + ++a
+        console.log(a, b)
+        // output 3 5
+    </script>
     
-
-let subjects = ["Math", "Science", "History", "Literature", "Art"];
-let index = prompt("Enter an index (0-4) to get the subject:");
-if (index >= 0 && index < subjects.length) {
-    console.log("Subject at index " + index + ": " + subjects[index]);
-} else {
-    console.log("Invalid index. Please enter a number between 0 and 4.");   
-}   
-
-</script>
 </body>
 </html>
