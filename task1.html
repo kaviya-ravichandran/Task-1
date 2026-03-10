@@ -7,10 +7,66 @@
 </head>
 <body>
     <script>
-        let name="Naveen";
-        let age=22; 
-        let city="Bangalore";
-        console.log("My name is "+name+",\nI am "+age+" years old.\nI am from "+city+".");
-    </script>
+        // Functions
+        function greetUser(name)
+
+        {
+            console.log("Welcome to Stackly",name)
+            
+
+        }
+        greetUser("Kaviya")
+        function calculateSalary(basic,bonus)
+        {
+            totalsalary=basic+bonus
+            return totalsalary
+        }
+        console.log(calculateSalary(35000,10000))
+        function checkEvenOdd(num)
+        {
+            return num%2==0? "Even" : "Odd"
+        }
+        console.log(checkEvenOdd(8))
+        function findMax(a,b,c)
+        {
+           return Math.max(a,b,c)
+        }
+        console.log(findMax(2,4,5))
+        function calculateGST(price)
+        {
+            return price+price*0.18
+        }
+        console.log(calculateGST(500))
+        function login(username,password)
+        {
+            if (username=="admin" & password=="1234")
+        {
+            console.log("Welcome")
+
+        }
+        else{
+            console.log("invalid")
+        }
+        }
+        login("admin",1234)
+
+        // Default Parameters
+        function createEmployee(name, role="trainee")
+        {
+            console.log(name, role)
+        }
+        createEmployee("Kaviya")
+        function calculateDiscount(price, discount=10)
+        {
+            return price*0.1
+        }
+        console.log(calculateDiscount(100))
+        function orderFood(item, quantity=1)
+        {
+            console.log(item,quantity=1)
+        }
+        orderFood("chappathi")
+</script>
 </body>
-</html>
+       </html> 
+
