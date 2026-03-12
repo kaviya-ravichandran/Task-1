@@ -7,221 +7,24 @@
 </head>
 <body>
     <script>
-        // 12. Function scope
-function testScope(){
-    let x = 100;
-    console.log(x);
-}
+      // 3️⃣ Website Username Formatter
+// Concepts: trim(), toUpperCase(), toLowerCase(), slice()
 
-testScope();
-// console.log(x); error
+let username = "   naveenkumar   "
 
-// 4. Hoisting
-// 13. var hoisting
- console.log(a); 
-var a = 10;
-// 14. let hoisting
-// console.log(b); error
-let b = 20;
-// 15. Function hoisting
-greet();
+// Remove spaces
+let clean = username.trim();
+console.log(clean);
 
-function greet(){
-    console.log("Hello");
-}
+// Uppercase
+console.log(clean.toUpperCase());
 
-// 5. Function Types
-// 16. Named function
-function example(){
-    console.log("Named Function Example");
-}
+// Lowercase
+console.log(clean.toLowerCase());
 
-example();
-// 17. Anonymous function
-let multiply = function(a,b){
-    return a * b;
-}
+// First 6 characters
+console.log(clean.slice(0,6));
 
-console.log(multiply(3,4));
-// 18. Arrow function
-const square = (n) => n*n;
-
-console.log(square(5));
-
-// 6. Callback & Higher Order Functions
-// 19. processData
-function processData(callback){
-    console.log("Processing...");
-    callback();
-}
-
-processData(function(){
-    console.log("Done");
-});
-// 20. calculate with callback
-function calculate(a,b,operation){
-    return operation(a,b);
-}
-
-function add(x,y){
-    return x+y;
-}
-
-console.log(calculate(5,3,add));
-// 21. Task Completed callback
-function task(callback){
-    let result = 5 + 10;
-    console.log(result);
-    callback();
-}
-
-function done(){
-    console.log("Task Completed");
-}
-
-task(done);
-// 22. Callback user data
-function getUser(callback){
-    let user = {name:"John", role:"Developer"};
-    callback(user);
-}
-
-getUser(function(data){
-    console.log(data);
-});
-
-// 7. Currying
-// 23. add
-function add(a){
-    return function(b){
-        return function(c){
-            return a+b+c;
-        }
-    }
-}
-
-console.log(add(2)(3)(4));
-// 24. multiply
-const multiply1 = a => b => c => a*b*c;
-
-console.log(multiply1(2)(3)(4));
-
-// 8. IIFE
-// 25. Website loaded
-(function(){
-    console.log("Website Loaded");
-})();
-// 26. Discount calculation
-(function(price){
-    let discount = price * 0.10;
-    console.log(price - discount);
-})(1000);
-
-// 9. Generator Functions
-// 27. Random coupons
-function* coupons(){
-    yield "DISC10";
-    yield "DISC20";
-    yield "DISC30";
-}
-
-let gen = coupons();
-
-console.log(gen.next().value);
-console.log(gen.next().value);
-console.log(gen.next().value);
-// 28. Motivational messages
-function* motivation(){
-    yield "Keep Coding";
-    yield "Practice Daily";
-    yield "Never Give Up";
-}
-
-
-  //  10. Spread Operator
-// 29. Merge arrays
-let a1 = [1,2,3];
-let b1 = [4,5,6];
-
-let merged = [...a1, ...b1];
-console.log(merged);
-// 30. Clone array
-let arr = [10,20,30];
-let clone = [...arr];
-
-console.log(clone);
-// 31. Merge objects
-let obj1 = {name:"John"};
-let obj2 = {role:"Developer"};
-
-let result = {...obj1, ...obj2};
-
-console.log(result);
-
-// 11. Rest Operator
-// 32. sumAll
-function sumAll(...numbers){
-    return numbers.reduce((a,b)=>a+b,0);
-}
-
-console.log(sumAll(1,2,3,4));
-// 33. First and rest
-function show(first,...rest){
-    console.log(first);
-    console.log(rest);
-}
-
-show(1,2,3,4);
-// 34. Total bill
-function totalBill(...prices){
-    return prices.reduce((a,b)=>a+b,0);
-}
-
-console.log(totalBill(100,200,300));
-
-// 12. Destructuring
-// 35. Array destructure
-let [e,f,g,h] = [10,20,30,40];
-
-console.log(e,f,g,h);
-// 36. Object destructure
-let {name,role,salary} = {
-    name:"Naveen",
-    role:"Developer",
-    salary:40000
-};
-
-console.log(name,role,salary);
-// 37. First and last
-let arr1 = [10,20,30,40];
-
-let [first,,,last] = arr1;
-
-console.log(first,last);
-// 38. Nested array
-let [a2,b2,[c,d]] = [1,2,[3,4]];
-
-console.log(c,d);
-
-// 13. Array Manipulation
-// 39. push pop shift unshift
-let arr2 = [1,2,3,4,5];
-
-arr2.push(6);
-arr2.pop();
-arr2.shift();
-arr2.unshift(0);
-
-console.log(arr2);
-// 40. splice
-let arr3 = [1,2,3,40,50,6];
-
-arr3.splice(3,2,4,5);
-
-console.log(arr3);
-
-
-        
     </script>
 </body>
 </html>

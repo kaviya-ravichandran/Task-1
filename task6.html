@@ -7,15 +7,18 @@
 </head>
 <body>
     <script>
-        // 2. Print 5–1
-let j = 5;
+       // 6️⃣ Salary Report Generator
+// Concept: reduce()
 
-while (i >= 1) {
-    console.log(i);
-    i--;
-}
+let salaries = [10000,20000,30000,40000]
 
+// Total salary
+let total = salaries.reduce((sum,sal)=>sum+sal,0);
+console.log(total);
 
+// Average salary
+let avg = total / salaries.length;
+console.log(avg);
     </script>
 </body>
 </html>

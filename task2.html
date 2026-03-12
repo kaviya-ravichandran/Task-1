@@ -7,25 +7,22 @@
 </head>
 <body>
     <script>
-        // scope
-        // global variable
-        let showCompany="stackly"
-        function ShowCompany()
-        {
-            console.log(showCompany);
-        }
-        ShowCompany();
+       // 2️⃣ E-commerce Product Search
+// Concepts: includes(), indexOf(), lastIndexOf()
 
-        // 11. Block scope
-if(true){
-    var a = 10;
-    let b = 20;
-    const c = 30;
-}
+let products = ["laptop","mobile","tablet","smartwatch","mobile"]
 
-console.log(a); 
-// console.log(b); error
-// console.log(c); error
+// Check if tablet exists
+console.log(products.includes("tablet"));
+
+// First index of mobile
+console.log(products.indexOf("mobile"));
+
+// Last index of mobile
+console.log(products.lastIndexOf("mobile"));
+
+// Check if camera exists
+console.log(products.includes("camera"));
     </script>
 </body>
 </html>

@@ -7,13 +7,17 @@
 </head>
 <body>
     <script>
-       //  5. Square numbers
-let i = 1;
+       // 9️⃣ Nested Array Data Cleanup
+// Concept: flat()
 
-while (i <= 5) {
-    console.log(i*i);
-    i++;
-}
+let data = [1,2,[3,4,[5,6]]]
+
+// Flatten
+let flatArray = data.flat(2);
+console.log(flatArray);
+Output
+
+[1,2,3,4,5,6]
     </script>
 </body>
 </html>

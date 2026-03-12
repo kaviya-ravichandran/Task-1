@@ -7,66 +7,36 @@
 </head>
 <body>
     <script>
-        // Functions
-        function greetUser(name)
+       // 1️⃣ Employee Salary Analysis System
+// Concepts: filter(), find(), reduce(), some(), every()
 
-        {
-            console.log("Welcome to Stackly",name)
-            
+let employees = [
+ {name:"Ravi", salary:25000},
+ {name:"Meena", salary:60000},
+ {name:"Arun", salary:45000},
+ {name:"Priya", salary:80000},
+ {name:"John", salary:30000}
+]
 
-        }
-        greetUser("Kaviya")
-        function calculateSalary(basic,bonus)
-        {
-            totalsalary=basic+bonus
-            return totalsalary
-        }
-        console.log(calculateSalary(35000,10000))
-        function checkEvenOdd(num)
-        {
-            return num%2==0? "Even" : "Odd"
-        }
-        console.log(checkEvenOdd(8))
-        function findMax(a,b,c)
-        {
-           return Math.max(a,b,c)
-        }
-        console.log(findMax(2,4,5))
-        function calculateGST(price)
-        {
-            return price+price*0.18
-        }
-        console.log(calculateGST(500))
-        function login(username,password)
-        {
-            if (username=="admin" & password=="1234")
-        {
-            console.log("Welcome")
+// Employees salary > 40000
+let highSalary = employees.filter(emp => emp.salary > 40000);
+console.log(highSalary);
 
-        }
-        else{
-            console.log("invalid")
-        }
-        }
-        login("admin",1234)
+// First employee salary > 70000
+let firstHigh = employees.find(emp => emp.salary > 70000);
+console.log(firstHigh);
 
-        // Default Parameters
-        function createEmployee(name, role="trainee")
-        {
-            console.log(name, role)
-        }
-        createEmployee("Kaviya")
-        function calculateDiscount(price, discount=10)
-        {
-            return price*0.1
-        }
-        console.log(calculateDiscount(100))
-        function orderFood(item, quantity=1)
-        {
-            console.log(item,quantity=1)
-        }
-        orderFood("chappathi")
-</script>
+// Total salary
+let totalSalary = employees.reduce((sum, emp) => sum + emp.salary, 0);
+console.log(totalSalary);
+
+// Any employee salary < 20000
+let lowSalary = employees.some(emp => emp.salary < 20000);
+console.log(lowSalary);
+
+// All employees salary > 20000
+let allAbove = employees.every(emp => emp.salary > 20000);
+console.log(allAbove);
+    </script>
 </body>
-       </html> 
-
+</html>

@@ -7,15 +7,21 @@
 </head>
 <body>
     <script>
-       // SECTION 5 – While Loop
-// 1. Print 1–5
-let i = 1;
+       // 5️⃣ Student Marks Analyzer
+// Concepts: sort(), reverse()
 
-while (i <= 5) {
-    console.log(i);
-    i++;
-}
+let marks = [45,90,23,67,88,12]
 
+// Ascending
+let asc = [...marks].sort((a,b)=>a-b);
+console.log(asc);
+
+// Descending
+let desc = [...marks].sort((a,b)=>b-a);
+console.log(desc);
+
+// Reverse
+console.log([...marks].reverse());
     </script>
 </body>
 </html>
