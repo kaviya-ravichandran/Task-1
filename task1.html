@@ -7,36 +7,60 @@
 </head>
 <body>
     <script>
-       // 1️⃣ Employee Salary Analysis System
-// Concepts: filter(), find(), reduce(), some(), every()
+        let choice = Number(prompt(
+"Calculator Menu\n" +
+"1. Addition\n" +
+"2. Subtraction\n" +
+"3. Multiplication\n" +
+"4. Division\n" +
+"5. Modulus\n" +
+"6. Square Root\n" +
+"7. Exit\n" +
+"Enter your choice:"
+));
 
-let employees = [
- {name:"Ravi", salary:25000},
- {name:"Meena", salary:60000},
- {name:"Arun", salary:45000},
- {name:"Priya", salary:80000},
- {name:"John", salary:30000}
-]
+let num1, num2, result;
 
-// Employees salary > 40000
-let highSalary = employees.filter(emp => emp.salary > 40000);
-console.log(highSalary);
+if (choice === 7) {
+    console.log("Calculator Closed");
+}
 
-// First employee salary > 70000
-let firstHigh = employees.find(emp => emp.salary > 70000);
-console.log(firstHigh);
+else if (choice === 6) {
 
-// Total salary
-let totalSalary = employees.reduce((sum, emp) => sum + emp.salary, 0);
-console.log(totalSalary);
+    num1 = Number(prompt("Enter number:"));
+    result = Math.sqrt(num1);
+    console.log("Result:", result);
 
-// Any employee salary < 20000
-let lowSalary = employees.some(emp => emp.salary < 20000);
-console.log(lowSalary);
+}
 
-// All employees salary > 20000
-let allAbove = employees.every(emp => emp.salary > 20000);
-console.log(allAbove);
+else if (choice >= 1 && choice <= 5) {
+
+    num1 = Number(prompt("Enter first number:"));
+    num2 = Number(prompt("Enter second number:"));
+
+    if (choice === 1) {
+        result = num1 + num2;
+    }
+    else if (choice === 2) {
+        result = num1 - num2;
+    }
+    else if (choice === 3) {
+        result = num1 * num2;
+    }
+    else if (choice === 4) {
+        result = num2 === 0 ? "Cannot divide by zero" : num1 / num2;
+    }
+    else if (choice === 5) {
+        result = num1 % num2;
+    }
+
+    console.log("Result:", result);
+}
+
+else {
+    console.log("Invalid choice");
+}
+
     </script>
 </body>
 </html>
