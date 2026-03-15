@@ -7,21 +7,20 @@
 </head>
 <body>
     <script>
-       // 5️⃣ Student Marks Analyzer
-// Concepts: sort(), reverse()
+        console.log("Order Placed");
 
-let marks = [45,90,23,67,88,12]
+setTimeout(() => {
+    console.log("Order Preparing");
+}, 2000);
 
-// Ascending
-let asc = [...marks].sort((a,b)=>a-b);
-console.log(asc);
+setTimeout(() => {
+    console.log("Out for Delivery");
+}, 5000);
 
-// Descending
-let desc = [...marks].sort((a,b)=>b-a);
-console.log(desc);
+setTimeout(() => {
+    console.log("Order Delivered");
+}, 8000);
 
-// Reverse
-console.log([...marks].reverse());
     </script>
 </body>
 </html>

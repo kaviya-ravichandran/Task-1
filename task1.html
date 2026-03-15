@@ -7,59 +7,16 @@
 </head>
 <body>
     <script>
-        let choice = Number(prompt(
-"Calculator Menu\n" +
-"1. Addition\n" +
-"2. Subtraction\n" +
-"3. Multiplication\n" +
-"4. Division\n" +
-"5. Modulus\n" +
-"6. Square Root\n" +
-"7. Exit\n" +
-"Enter your choice:"
-));
+        setInterval(() => {
+    let now = new Date();
 
-let num1, num2, result;
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+    let seconds = now.getSeconds();
 
-if (choice === 7) {
-    console.log("Calculator Closed");
-}
-
-else if (choice === 6) {
-
-    num1 = Number(prompt("Enter number:"));
-    result = Math.sqrt(num1);
-    console.log("Result:", result);
-
-}
-
-else if (choice >= 1 && choice <= 5) {
-
-    num1 = Number(prompt("Enter first number:"));
-    num2 = Number(prompt("Enter second number:"));
-
-    if (choice === 1) {
-        result = num1 + num2;
-    }
-    else if (choice === 2) {
-        result = num1 - num2;
-    }
-    else if (choice === 3) {
-        result = num1 * num2;
-    }
-    else if (choice === 4) {
-        result = num2 === 0 ? "Cannot divide by zero" : num1 / num2;
-    }
-    else if (choice === 5) {
-        result = num1 % num2;
-    }
-
-    console.log("Result:", result);
-}
-
-else {
-    console.log("Invalid choice");
-}
+    console.log(`${hours}:${minutes}:${seconds}`);
+        },
+        1000);
 
     </script>
 </body>

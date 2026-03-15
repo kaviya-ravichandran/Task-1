@@ -7,16 +7,15 @@
 </head>
 <body>
     <script>
-     // 7️⃣ URL Processor
-// Concept: split()
+         fetch("https://jsonplaceholder.typicode.com/todos/")
+.then(response => response.json())
+.then(data => {
+    let completedTasks = data.filter(todo => todo.completed === true);
 
-let url = "www-stackly-com"
-
-let result = url.split("-");
-console.log(result);
-Output
-
-["www","stackly","com"]
+    completedTasks.forEach(task => {
+        console.log(task.title);
+    });
+});
     </script>
 </body>
 </html>

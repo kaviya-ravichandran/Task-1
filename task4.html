@@ -7,19 +7,14 @@
 </head>
 <body>
     <script>
-       // 4️⃣ Game Platform Data Processing
-// Concepts: forEach(), map()
+        let reminder = setInterval(() => {
+    console.log("Take a short break");
+}, 5000);
 
-let games = ["cricket","football","hockey","tennis"]
-
-// Print using forEach
-games.forEach(game => {
-    console.log(game);
-});
-
-// Create new array
-let newGames = games.map(game => "Game : " + game);
-console.log(newGames);
+setTimeout(() => {
+    clearInterval(reminder);
+    console.log("Reminder stopped");
+}, 20000);
     </script>
 </body>
 </html>

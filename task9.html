@@ -7,17 +7,17 @@
 </head>
 <body>
     <script>
-       // 9️⃣ Nested Array Data Cleanup
-// Concept: flat()
+        let time = 10;
 
-let data = [1,2,[3,4,[5,6]]]
+let countdown = setInterval(() => {
+    console.log(time);
+    time--;
 
-// Flatten
-let flatArray = data.flat(2);
-console.log(flatArray);
-Output
-
-[1,2,3,4,5,6]
+    if (time < 0) {
+        clearInterval(countdown);
+        console.log("Meeting Started");
+    }
+}, 1000);
     </script>
 </body>
 </html>
