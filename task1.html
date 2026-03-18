@@ -1,23 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Dashboard</title>
+  <style>
+    body { font-family: Arial; margin: 0; padding: 0; }
+    header { padding: 10px; background: #4257de; color: white; display:flex; justify-content:space-between; }
+    .controls { display:flex; gap:10px; padding:10px; flex-wrap:wrap; }
+    .products { display:grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap:15px; padding:10px; }
+    .card { border:1px solid #ddd; padding:10px; border-radius:8px; text-align:center; }
+    img { height:120px; object-fit:contain; }
+    button { padding:5px 10px; cursor:pointer; }
+    .cart { padding:10px; border-top:2px solid #333; }
+  </style>
 </head>
 <body>
-    <script>
-        setInterval(() => {
-    let now = new Date();
 
-    let hours = now.getHours();
-    let minutes = now.getMinutes();
-    let seconds = now.getSeconds();
+<header>
+  <h2>🛍 Product Dashboard</h2>
+  <div>Cart: <span id="cart-count">0</span></div>
+</header>
 
-    console.log(`${hours}:${minutes}:${seconds}`);
-        },
-        1000);
+<div class="controls">
+  <input type="text" id="search" placeholder="Search...">
 
-    </script>
+  <select id="category">
+    <option value="">All</option>
+    <option value="men's clothing">Men</option>
+    <option value="women's clothing">Women</option>
+    <option value="electronics">Electronics</option>
+    <option value="jewelery">Jewelry</option>
+  </select>
+
+  <button onclick="sortLowHigh()">Price ↑</button>
+  <button onclick="sortHighLow()">Price ↓</button>
+</div>
+
+<div id="loader">Loading...</div>
+<div class="products" id="products"></div>
+
+<div class="cart">
+  <h3>🛒 Cart</h3>
+  <div id="cart-items"></div>
+  <h4>Total: $<span id="total">0</span></h4>
+</div>
+
+<script>
+let allProducts = [];
+let filteredProducts = [];
+let cart = [];
+
+// Fetch API
+fetch('https://fakestoreapi.com/products')
+.then(res => res.json())
+.then(data => {
+  document.getElementById('loader').style.display = 'none';
+  allProducts = data;
+  filteredProducts = data;
+  displayProducts(data);
+})
+.catch(err => {
+  document.getElementById('loader').innerText = 'Error loading products';
+});
+
+// Display Products
+function displayProducts(products) {
+  const container = document.getElementById('products');
+  container.innerHTML = '';
+
+  products.map(p => {
+    container.innerHTML += `
+      <div class="card">
+        <img src="${p.image}" />
+        <h4>${p.title.substring(0,50)}</h4>
+        <p>$${p.price}</p>
+        <p>${p.category}</p>
+        <p>⭐ ${p.rating.rate}</p>
+        <button onclick="addToCart(${p.id})">Add to Cart</button>
+      </div>
+    `;
+  });
+}
+
+// Search
+document.getElementById('search').addEventListener('input', function() {
+  const val = this.value.toLowerCase();
+  filteredProducts = allProducts.filter(p =>
+    p.title.toLowerCase().includes(val) ||
+    p.category.toLowerCase().includes(val)
+  );
+  displayProducts(filteredProducts);
+});
+
+// Category Filter
+document.getElementById('category').addEventListener('change', function() {
+  const val = this.value;
+  filteredProducts = val ? allProducts.filter(p => p.category === val) : allProducts;
+  displayProducts(filteredProducts);
+});
+
+// Sorting
+function sortLowHigh() {
+  filteredProducts.sort((a,b)=>a.price-b.price);
+  displayProducts(filteredProducts);
+}
+
+function sortHighLow() {
+  filteredProducts.sort((a,b)=>b.price-a.price);
+  displayProducts(filteredProducts);
+}
+
+// Cart
+function addToCart(id) {
+  const item = allProducts.find(p => p.id === id);
+  const existing = cart.find(c => c.id === id);
+
+  if(existing) {
+    existing.qty++;
+  } else {
+    cart.push({...item, qty:1});
+  }
+
+  updateCart();
+}
+
+function updateCart() {
+  document.getElementById('cart-count').innerText = cart.length;
+
+  const container = document.getElementById('cart-items');
+  container.innerHTML = '';
+
+  cart.map(item => {
+    container.innerHTML += `
+      <div>
+        ${item.title} - $${item.price} x ${item.qty}
+        <button onclick="removeItem(${item.id})">❌</button>
+      </div>
+    `;
+  });
+
+  const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+  document.getElementById('total').innerText = total.toFixed(2);
+}
+
+function removeItem(id) {
+  cart = cart.filter(item => item.id !== id);
+  updateCart();
+}
+</script>
+
 </body>
 </html>
